@@ -11,7 +11,7 @@ class Login {
 
   verifyForgotPassword() {
     cy.visitMainPage();
-    cy.get(".text-center > a").click();
+    cy.xpath("/html/body/div[2]/div[@class='login-box w-100']//a[@href='/accounts/password/reset/']").click();
     cy.get("h3 > span").should("have.text", "Password Reset Page");
     return this;
   }
@@ -44,7 +44,9 @@ class Login {
     cy.get("#id_login").then(($input) => {
       expect($input[0].validationMessage).to.eq("Please fill out this field.");
     });
+    return this;
   }
+  
   verifyInvalidLogin() {
     cy.get("p > span").should(
       "have.text",

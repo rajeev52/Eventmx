@@ -1,6 +1,4 @@
 class Footer {
-
-    
     EventMxLogo() {
         cy.get(".sub-footer").scrollIntoView().should('be.visible');
         cy.wait(2000);
@@ -19,6 +17,7 @@ class Footer {
         cy.get(".my-banner h3").should("have.text", "Discover - Explore - Experience");
         return this;
     }
+
     AboutUs() {
         cy.scrollTo('bottom');
         cy.get(".sub-footer .sf-box a").contains('About Us').click().wait(200)
